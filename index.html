@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookMyShow - Book Movies, Events & Shows</title>
+    <meta
+      name="description"
+      content="BookMyShow - Book movie tickets, live events, plays and sports in one place. Best seats, best prices."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var prefersLight = window.matchMedia(
+          "(prefers-color-scheme: light)",
+        ).matches;
+        document.documentElement.setAttribute(
+          "data-theme",
+          saved || (prefersLight ? "light" : "dark"),
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#"
+          >Book<span class="text-danger">My</span>Show</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#movies">Movies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#events">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#offers">Offers</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              type="button"
+              aria-label="Toggle color theme"
+              title="Toggle theme"
+            >
+              <svg
+                class="icon-moon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+              <svg
+                class="icon-sun"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </button>
+            <button
+              class="btn btn-outline-light btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              Sign In
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#signupModal"
+            >
+              Sign Up
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <!-- Left grid: 6 columns -->
+          <div class="col-lg-6 hero-left">
+            <p class="hero-eyebrow">Your entertainment, one click away</p>
+            <h1 class="hero-title">
+              Resonating with
+              <span class="brand"
+                >Book<span class="text-danger">My</span>Show</span
+              >
+            </h1>
+            <p class="hero-subtitle">
+              Book movies, events and shows in seconds. Best seats, best prices,
+              zero hassle.
+            </p>
+
+            <!-- Search bar -->
+            <form class="hero-search" role="search" onsubmit="return false;">
+              <span class="hero-search-icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </span>
+              <input
+                type="search"
+                class="hero-search-input"
+                id="movieSearch"
+                placeholder="Search for movies, events, plays..."
+                aria-label="Search movies"
+              />
+              <button type="submit" class="btn btn-danger hero-search-btn">
+                Search
+              </button>
+            </form>
+
+            <!-- Quick category icons -->
+            <div class="hero-cats">
+              <a href="#movies" class="hero-cat">
+                <span class="hero-cat-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                    <line x1="7" y1="4" x2="7" y2="20"></line>
+                    <line x1="17" y1="4" x2="17" y2="20"></line>
+                    <line x1="2" y1="9" x2="7" y2="9"></line>
+                    <line x1="2" y1="15" x2="7" y2="15"></line>
+                    <line x1="17" y1="9" x2="22" y2="9"></line>
+                    <line x1="17" y1="15" x2="22" y2="15"></line>
+                  </svg>
+                </span>
+                <span>Movies</span>
+              </a>
+              <a href="#offers" class="hero-cat">
+                <span class="hero-cat-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+                    ></path>
+                    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                  </svg>
+                </span>
+                <span>Offers</span>
+              </a>
+              <a href="#events" class="hero-cat">
+                <span class="hero-cat-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                    ></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  </svg>
+                </span>
+                <span>Shopping</span>
+              </a>
+              <a href="#events" class="hero-cat">
+                <span class="hero-cat-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                  </svg>
+                </span>
+                <span>Events</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right grid: 6 columns -->
+          <div class="col-lg-6 hero-right">
+            <div class="hero-art">
+              <img
+                class="hero-img hero-img-back"
+                src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80"
+                alt="Cinema screen with audience"
+              />
+              <img
+                class="hero-img hero-img-front"
+                src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=500&q=80"
+                alt="Movie clapperboard and popcorn"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section id="movies" class="movies-section">
+      <div class="container">
+        <div class="movies-head">
+          <h2 class="movies-title">Recommended Movies</h2>
+          <a href="#movies" class="movies-seeall">See All &rsaquo;</a>
+        </div>
+
+        <div class="movies-row">
+          <!-- Card 1 -->
+          <article class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?auto=format&fit=crop&w=400&q=80"
+                alt="Neon Dreams poster"
+              />
+              <span class="movie-badge">A</span>
+            </div>
+            <div class="movie-body">
+              <h3 class="movie-name">Neon Dreams</h3>
+              <p class="movie-desc">
+                A hacker chases a mystery through a rain-soaked cyber city.
+              </p>
+              <div class="movie-meta">
+                <span class="movie-rating" aria-label="Rating">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"
+                    />
+                  </svg>
+                  8.6/10
+                </span>
+                <span class="movie-votes">24.1K Votes</span>
+              </div>
+              <span class="movie-lang">Hindi, English</span>
+              <button class="btn btn-danger movie-book" type="button">
+                Book Now
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80"
+                alt="The Last Reel poster"
+              />
+              <span class="movie-badge">U/A</span>
+            </div>
+            <div class="movie-body">
+              <h3 class="movie-name">The Last Reel</h3>
+              <p class="movie-desc">
+                An aging projectionist fights to save his beloved theatre.
+              </p>
+              <div class="movie-meta">
+                <span class="movie-rating" aria-label="Rating">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"
+                    />
+                  </svg>
+                  7.9/10
+                </span>
+                <span class="movie-votes">12.7K Votes</span>
+              </div>
+              <span class="movie-lang">Tamil, Telugu</span>
+              <button class="btn btn-danger movie-book" type="button">
+                Book Now
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=400&q=80"
+                alt="Midnight Sonata poster"
+              />
+              <span class="movie-badge">U</span>
+            </div>
+            <div class="movie-body">
+              <h3 class="movie-name">Midnight Sonata</h3>
+              <p class="movie-desc">
+                A pianist and a stranger share one unforgettable night.
+              </p>
+              <div class="movie-meta">
+                <span class="movie-rating" aria-label="Rating">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"
+                    />
+                  </svg>
+                  9.1/10
+                </span>
+                <span class="movie-votes">38.5K Votes</span>
+              </div>
+              <span class="movie-lang">English</span>
+              <button class="btn btn-danger movie-book" type="button">
+                Book Now
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="movie-card">
+            <div class="movie-poster">
+              <img
+                src="https://images.unsplash.com/photo-1512070679279-8988d32161be?auto=format&fit=crop&w=400&q=80"
+                alt="Desert Storm poster"
+              />
+              <span class="movie-badge">A</span>
+            </div>
+            <div class="movie-body">
+              <h3 class="movie-name">Desert Storm</h3>
+              <p class="movie-desc">
+                A squad races across the dunes to stop a looming disaster.
+              </p>
+              <div class="movie-meta">
+                <span class="movie-rating" aria-label="Rating">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"
+                    />
+                  </svg>
+                  8.2/10
+                </span>
+                <span class="movie-votes">19.3K Votes</span>
+              </div>
+              <span class="movie-lang">Hindi, Kannada</span>
+              <button class="btn btn-danger movie-book" type="button">
+                Book Now
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events" class="events-section">
+      <div class="container">
+        <div class="events-head">
+          <h2 class="events-title">Upcoming Events</h2>
+          <a href="#events" class="events-seeall">See All &rsaquo;</a>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <article class="event-card">
+              <div class="event-img">
+                <img
+                  src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=500&q=80"
+                  alt="Sunburn Arena concert"
+                />
+                <span class="event-tag">Music</span>
+              </div>
+              <div class="event-body">
+                <span class="event-name">Sunburn Arena</span>
+                <h3 class="event-heading">Electric Nights ft. DJ Aero</h3>
+                <p class="event-desc">
+                  A high-voltage night of EDM with laser shows and live mixing.
+                </p>
+                <div class="event-info">
+                  <span class="event-price">&#8377;1,499 onwards</span>
+                  <span class="event-venue">DY Patil Stadium, Mumbai</span>
+                </div>
+                <button class="btn btn-danger event-book" type="button">
+                  Book Now
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <article class="event-card">
+              <div class="event-img">
+                <img
+                  src="https://images.unsplash.com/photo-1507924538820-ede94a04019d?auto=format&fit=crop&w=500&q=80"
+                  alt="Comedy night event"
+                />
+                <span class="event-tag">Comedy</span>
+              </div>
+              <div class="event-body">
+                <span class="event-name">Laugh Out Loud</span>
+                <h3 class="event-heading">Stand-Up Special: Late Show</h3>
+                <p class="event-desc">
+                  An evening of unfiltered comedy with the country's top comics.
+                </p>
+                <div class="event-info">
+                  <span class="event-price">&#8377;799 onwards</span>
+                  <span class="event-venue">Comedy Club, Bengaluru</span>
+                </div>
+                <button class="btn btn-danger event-book" type="button">
+                  Book Now
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <article class="event-card">
+              <div class="event-img">
+                <img
+                  src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=500&q=80"
+                  alt="Theatre play event"
+                />
+                <span class="event-tag">Theatre</span>
+              </div>
+              <div class="event-body">
+                <span class="event-name">Prithvi Theatre</span>
+                <h3 class="event-heading">The Silent Curtain</h3>
+                <p class="event-desc">
+                  A gripping drama exploring love, loss and second chances.
+                </p>
+                <div class="event-info">
+                  <span class="event-price">&#8377;599 onwards</span>
+                  <span class="event-venue">Prithvi Theatre, Mumbai</span>
+                </div>
+                <button class="btn btn-danger event-book" type="button">
+                  Book Now
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Offers & Deals Section -->
+    <section id="offers" class="offers-section">
+      <div class="container">
+        <div class="offers-head">
+          <h2 class="offers-title">Offers &amp; Deals</h2>
+          <p class="offers-subtitle">Save more every time you book</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Offer 1: Card offer -->
+          <div class="col-md-3">
+            <article class="offer-card">
+              <div class="offer-icon offer-icon-card" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+              </div>
+              <span class="offer-badge">Card Offer</span>
+              <h3 class="offer-name">Flat 25% Off on HDFC Cards</h3>
+              <p class="offer-desc">
+                Get up to &#8377;150 off on movie tickets with HDFC credit &amp;
+                debit cards.
+              </p>
+              <span class="offer-code">Code: HDFC25</span>
+              <button class="btn btn-outline-danger offer-btn" type="button">
+                Grab Offer
+              </button>
+            </article>
+          </div>
+
+          <!-- Offer 2: Cashback -->
+          <div class="col-md-3">
+            <article class="offer-card">
+              <div class="offer-icon offer-icon-cash" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path
+                    d="M14.5 9a2.5 2.5 0 0 0-2.5-1.5c-1.4 0-2.5.9-2.5 2s1.1 2 2.5 2 2.5.9 2.5 2-1.1 2-2.5 2A2.5 2.5 0 0 1 9.5 16"
+                  ></path>
+                  <line x1="12" y1="6" x2="12" y2="7.5"></line>
+                  <line x1="12" y1="16.5" x2="12" y2="18"></line>
+                </svg>
+              </div>
+              <span class="offer-badge">Cashback</span>
+              <h3 class="offer-name">Up to &#8377;100 Cashback</h3>
+              <p class="offer-desc">
+                Pay via Paytm UPI or Wallet and earn assured cashback on every
+                booking.
+              </p>
+              <span class="offer-code">Code: PAYCASH</span>
+              <button class="btn btn-outline-danger offer-btn" type="button">
+                Grab Offer
+              </button>
+            </article>
+          </div>
+
+          <!-- Offer 3: Buy 1 Get 1 -->
+          <div class="col-md-3">
+            <article class="offer-card">
+              <div class="offer-icon offer-icon-bogo" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"
+                  ></path>
+                  <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+              </div>
+              <span class="offer-badge">Buy 1 Get 1</span>
+              <h3 class="offer-name">Buy 1 Get 1 Free Ticket</h3>
+              <p class="offer-desc">
+                Book one ticket and get the second one absolutely free on
+                weekdays.
+              </p>
+              <span class="offer-code">Code: BOGOFREE</span>
+              <button class="btn btn-outline-danger offer-btn" type="button">
+                Grab Offer
+              </button>
+            </article>
+          </div>
+
+          <!-- Offer 4: Combo deal -->
+          <div class="col-md-3">
+            <article class="offer-card">
+              <div class="offer-icon offer-icon-combo" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M4 3h16l-1 6a5 5 0 0 1-5 4h-4a5 5 0 0 1-5-4z"></path>
+                  <line x1="8" y1="20" x2="16" y2="20"></line>
+                  <line x1="12" y1="13" x2="12" y2="20"></line>
+                </svg>
+              </div>
+              <span class="offer-badge">Combo</span>
+              <h3 class="offer-name">Popcorn Combo at &#8377;99</h3>
+              <p class="offer-desc">
+                Grab a large popcorn and drink combo for just &#8377;99 with any
+                booking.
+              </p>
+              <span class="offer-code">Code: SNACK99</span>
+              <button class="btn btn-outline-danger offer-btn" type="button">
+                Grab Offer
+              </button>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
