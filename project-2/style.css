@@ -27,7 +27,15 @@ body {
 
 /* ---------- Hero layout ---------- */
 .hero-section {
-  background: linear-gradient(135deg, var(--hero-bg-start), var(--hero-bg-end));
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.42)),
+    url("image.jpg") center / cover no-repeat;
+  --hero-text: #ffffff;
+  --hero-muted: #f1eaf7;
+  --hero-card: #232a36;
+  --hero-border: rgba(255, 255, 255, 0.08);
+  --hero-input-bg: #1b212b;
+  --hero-accent: #dc3545;
   color: var(--hero-text);
   padding: 4rem 0 5rem;
   overflow: hidden;
