@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResumeIQ — ATS Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">IQ</span>
+        <div>
+          <h1 class="brand-title">ResumeIQ</h1>
+          <p class="brand-sub">Match your resume to any job in seconds</p>
+        </div>
+      </div>
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        title="Toggle theme"
+      >
+        ☀️
+      </button>
+    </header>
+
+    <main class="container">
+      <!-- Input section -->
+      <section class="card inputs">
+        <div class="field">
+          <label for="resumeInput">Your Resume</label>
+          <textarea
+            id="resumeInput"
+            placeholder="Paste the full text of your resume here..."
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label for="jobInput">Job Description</label>
+          <textarea
+            id="jobInput"
+            placeholder="Paste the job description you're targeting..."
+          ></textarea>
+        </div>
+
+        <p id="inputError" class="input-error hidden"></p>
+
+        <button id="analyseBtn" class="btn btn--primary" type="button">
+          Analyze Match
+        </button>
+      </section>
+
+      <!-- Results section -->
+      <section id="results" class="results hidden">
+        <!-- Score -->
+        <div class="card score-card">
+          <div id="scoreRing" class="score-ring">
+            <div class="score-ring-inner">
+              <span id="scoreValue" class="score-value">0</span>
+              <span class="score-unit">/ 100</span>
+            </div>
+          </div>
+          <p id="scoreMessage" class="score-message"></p>
+        </div>
+
+        <!-- Keywords -->
+        <div class="grid-2">
+          <div class="card">
+            <h2 class="card-title">
+              Matched Keywords <span class="dot dot--good"></span>
+            </h2>
+            <div id="matchedKeywords" class="tags"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title-row">
+              <h2 class="card-title">
+                Missing Keywords <span class="dot dot--bad"></span>
+              </h2>
+              <button id="copyBtn" class="btn btn--ghost btn--sm" type="button">
+                Copy
+              </button>
+            </div>
+            <div id="missingKeywords" class="tags"></div>
+            <p id="copyStatus" class="copy-status"></p>
+          </div>
+        </div>
+
+        <!-- Sections + Suggestions -->
+        <div class="grid-2">
+          <div class="card">
+            <h2 class="card-title">Resume Sections</h2>
+            <ul id="sectionList" class="section-list"></ul>
+          </div>
+
+          <div class="card">
+            <h2 class="card-title">Suggestions</h2>
+            <ul id="suggestionList" class="suggestion-list"></ul>
+          </div>
+        </div>
+
+        <!-- AI panel (powered by Gemini) -->
+        <div id="aiPanel" class="card ai-panel hidden">
+          <h2 class="card-title">AI-Powered Suggestions</h2>
+          <p class="ai-hint">
+            Enter your Gemini API key to get tailored, AI-generated advice.
+          </p>
+
+          <div class="ai-controls">
+            <input
+              id="geminiKey"
+              class="ai-key"
+              type="password"
+              placeholder="Gemini API key"
+              autocomplete="off"
+            />
+            <button id="aiBtn" class="btn btn--primary btn--sm" type="button">
+              Get AI Suggestions
+            </button>
+          </div>
+
+          <p id="aiStatus" class="ai-status"></p>
+          <ul id="aiSuggestionsList" class="suggestion-list"></ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built with ResumeIQ · All analysis runs in your browser.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="gemini.js"></script>
+  </body>
+</html>
