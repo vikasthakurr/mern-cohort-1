@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ForgeTest · Report</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="masthead">
+        <h1><span class="logo">⚒</span> ForgeTest</h1>
+        <p class="tagline">Build Your Own Test Framework · test report</p>
+      </header>
+
+      <div id="banner" class="banner neutral">Running tests…</div>
+
+      <section class="summary">
+        <div class="stat">
+          <span class="stat-value" id="stat-total">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat pass">
+          <span class="stat-value" id="stat-passed">0</span>
+          <span class="stat-label">Passed</span>
+        </div>
+        <div class="stat fail">
+          <span class="stat-value" id="stat-failed">0</span>
+          <span class="stat-label">Failed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="stat-rate">0%</span>
+          <span class="stat-label">Pass rate</span>
+        </div>
+      </section>
+
+      <div class="progress">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <section id="results" class="results"></section>
+
+      <footer class="foot">
+        Powered by <code>forge.js</code> — a handmade test framework.
+      </footer>
+    </main>
+
+    <script type="module" src="runner.js"></script>
+  </body>
+</html>
