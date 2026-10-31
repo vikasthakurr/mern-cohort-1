@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TradeStream - a real-time trading terminal built with vanilla JavaScript to demonstrate the DOM, ES6 classes, and asynchronous programming."
+    />
+    <title>TradeStream</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <h1 class="logo">Trade<span>Stream</span></h1>
+        <span class="badge" id="connBadge" data-state="off">● offline</span>
+      </div>
+      <div class="account">
+        <div class="account-item">
+          <span class="account-label">Cash</span>
+          <span class="account-value" id="cashValue">$0.00</span>
+        </div>
+        <div class="account-item">
+          <span class="account-label">Holdings</span>
+          <span class="account-value" id="holdingsValue">$0.00</span>
+        </div>
+        <div class="account-item">
+          <span class="account-label">Net worth</span>
+          <span class="account-value account-total" id="netValue">$0.00</span>
+        </div>
+        <button id="feedBtn" class="btn-feed" type="button">
+          Connect feed
+        </button>
+      </div>
+    </header>
+
+    <main class="terminal">
+      <section class="panel watchlist">
+        <div class="panel-head">
+          <h2>Watchlist</h2>
+          <span class="panel-hint">live prices</span>
+        </div>
+        <div class="watchlist-head">
+          <span>Symbol</span>
+          <span class="num">Last</span>
+          <span class="num">Change</span>
+        </div>
+        <ul id="watchlist" class="ticker-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="panel detail">
+        <div class="panel-head">
+          <h2 id="detailSymbol">—</h2>
+          <span class="panel-hint" id="detailName">select an instrument</span>
+        </div>
+
+        <div class="quote">
+          <span class="quote-price" id="quotePrice">$0.00</span>
+          <span class="quote-change" id="quoteChange">0.00%</span>
+        </div>
+
+        <div class="sparkline-wrap">
+          <svg
+            id="sparkline"
+            class="sparkline"
+            viewBox="0 0 300 80"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <polyline id="sparklinePath" points="" />
+          </svg>
+        </div>
+
+        <form id="orderForm" class="order-form" novalidate>
+          <div class="order-side">
+            <button type="button" class="side-btn active" data-side="buy">
+              Buy
+            </button>
+            <button type="button" class="side-btn" data-side="sell">
+              Sell
+            </button>
+          </div>
+          <label class="field">
+            <span>Quantity</span>
+            <input
+              type="number"
+              id="orderQty"
+              min="1"
+              step="1"
+              value="10"
+              inputmode="numeric"
+            />
+          </label>
+          <div class="order-est">
+            <span>Est. total</span>
+            <span id="orderEst">$0.00</span>
+          </div>
+          <button type="submit" class="btn-submit" id="orderSubmit">
+            Place buy order
+          </button>
+          <p class="order-msg" id="orderMsg" aria-live="polite"></p>
+        </form>
+
+        <div class="position" id="positionBox">
+          <span class="position-label">Position</span>
+          <span class="position-value" id="positionValue"
+            >No open position</span
+          >
+        </div>
+      </section>
+
+      <section class="panel log">
+        <div class="panel-head">
+          <h2>Trade log</h2>
+          <span class="panel-hint" id="logCount">0 fills</span>
+        </div>
+        <ul id="tradeLog" class="trade-log" aria-live="polite">
+          <li class="log-empty">
+            No trades yet. Connect the feed and place an order.
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel news">
+        <div class="panel-head">
+          <h2>News wire</h2>
+          <span class="panel-hint">market-moving headlines</span>
+        </div>
+        <ul id="newsFeed" class="news-feed" aria-live="polite">
+          <li class="news-empty">
+            No headlines yet. Connect the feed to start the news wire.
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel analyst">
+        <div class="panel-head">
+          <h2>AI analyst</h2>
+          <span class="panel-hint" id="analystModel">powered by Gemini</span>
+        </div>
+        <div class="analyst-body">
+          <label class="field">
+            <span>Gemini API key (stored locally in your browser)</span>
+            <input
+              type="password"
+              id="geminiKey"
+              placeholder="AIza..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </label>
+          <button id="briefBtn" class="btn-brief" type="button">
+            Ask AI for a market briefing
+          </button>
+          <p class="analyst-status" id="analystStatus" aria-live="polite"></p>
+          <div id="analystOutput" class="analyst-output hidden"></div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

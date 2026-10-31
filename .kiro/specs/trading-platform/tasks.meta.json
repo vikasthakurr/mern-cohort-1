@@ -1,0 +1,243 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Set up project shell and shared utilities": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391139
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441399092
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441515674
+      }
+    ],
+    "2. Implement persistent state store (`store.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391240
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441522534
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441581850
+      }
+    ],
+    "3. Implement the market price engine (`market.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391463
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441589903
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441682545
+      }
+    ],
+    "4. Implement the pure trading logic (`portfolio.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391537
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441686133
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441806034
+      }
+    ],
+    "5. Implement the live tick scheduler (`feed.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391602
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441809791
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441889617
+      }
+    ],
+    "6. Implement the chart wrapper (`chart.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391705
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441893399
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441974858
+      }
+    ],
+    "7. Build initial funding and account controls in `app.js`": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391792
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441979175
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442076002
+      }
+    ],
+    "8. Build stock list, search, and active-stock selection in `app.js`": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391858
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442079745
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442292206
+      }
+    ],
+    "9. Wire the live update loop in `app.js`": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441391957
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442296001
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442485183
+      }
+    ],
+    "10. Build the trade panel (buy/sell) in `app.js`": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441392105
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442489236
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442609293
+      }
+    ],
+    "11. Build the portfolio and transaction-history views in `app.js`": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441392186
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442612977
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442745976
+      }
+    ],
+    "12. Repurpose the Gemini chatbot (`gemini.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441392288
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442758235
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442963731
+      }
+    ],
+    "13. Implement the news panel (`news.js`)": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441392355
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793442967943
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793443078759
+      }
+    ],
+    "14. Final wiring, polish, and manual verification pass": [
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793441392471
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793443083344
+      },
+      {
+        "executionId": "28ad4ad7-4813-4dfd-a59d-eecdddcd9b6c",
+        "chatSessionId": "sess_cb9cfc74-3639-48c0-940c-d882f1120f6c",
+        "timestamp": 1793443306287
+      }
+    ]
+  }
+}
